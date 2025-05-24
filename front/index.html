@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Анализатор швов</title>
+    <link rel="stylesheet" href="static/style.css?v={{ version }}">
+    <link rel="icon" href="static/src/gas.ico" type="image/x-icon">
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <span>Место для лого</span>
+<!--        <img src="static/src/gazprom-neft.svg" alt="Газпром" class="header-logo" />-->
+    </div>
+</header>
+
+<div class="main-layout">
+    <!-- Центральная панель сверху - дроп-зона -->
+    <div id="drag-and-drop-zone" class="drop-zone">
+        <div class="drop-zone-text">Перетащите сюда изображение или кликните для выбора</div>
+              <div class="drop-zone-preview" style="position: relative;"></div>
+        <input type="file" accept="image/*" style="display:none" />
+    </div>
+    <div class="flex-div">
+
+    <!-- Левая панель - структура папки -->
+    <div class="container-center">
+        <div id="folder-panel">
+            <button id="select-folder-btn" style="margin-bottom: 10px; padding: 8px 12px; cursor: pointer;">Выбрать папку</button>
+            <input type="file" id="folder-input" webkitdirectory multiple style="display:none" />
+            <div id="folder-structure" style="white-space: pre-wrap; font-size: 14px;">Папка не выбрана</div>
+        </div>
+        <button id="confirm-btn" disabled>Отправить изображение</button>
+    </div>
+
+    <!-- Центральная панель снизу - панель инструментов -->
+    <div class="all-center">
+        <div class="btn-cont">
+        <button id="activate-selection-btn" disabled> <img class="btn-icon" src="static/src/select.png" alt="Выделить область" width="32" height="32" style="vertical-align: middle; margin-right: 8px;"></button>
+        <button id="delete-area-btn" disabled> <img class="btn-icon" src="static/src/delete-area.png" alt="Удалить область" width="32" height="32" style="vertical-align: middle; margin-right: 8px;"></button>
+        <button id="delete-image-btn" disabled><img class="btn-icon" src="static/src/delete-image.png" alt="Удалить изображение" width="32" height="32" style="vertical-align: middle; margin-right: 8px;"></button>
+        </div>
+        <div class="hidden" id="non-vis"><div class="radio-group">
+            <div class="form_radio_btn">
+                <input id="defect-1" type="radio" name="defect-type" value="1">
+                <label for="defect-1">1: пора</label>
+            </div>
+            <div class="form_radio_btn">
+                <input id="defect-2" type="radio" name="defect-type" value="2">
+                <label for="defect-2">2: включение</label>
+            </div>
+            <div class="form_radio_btn">
+                <input id="defect-3" type="radio" name="defect-type" value="3">
+                <label for="defect-3">3: подрез</label>
+            </div>
+            <div class="form_radio_btn">
+                <input id="defect-4" type="radio" name="defect-type" value="4">
+                <label for="defect-4">4: прожог</label>
+            </div>
+            <div class="form_radio_btn">
+                <input id="defect-5" type="radio" name="defect-type" value="5">
+                <label for="defect-5">5: трещина</label>
+            </div>
+            <div class="form_radio_btn">
+                <input id="defect-6" type="radio" name="defect-type" value="6">
+                <label for="defect-6">6: наплыв</label>
+            </div>
+            <div class="form_radio_btn">
+                <input id="defect-7" type="radio" name="defect-type" value="7">
+                <label for="defect-7">7: эталон1</label>
+            </div>
+            <div class="form_radio_btn">
+                <input id="defect-8" type="radio" name="defect-type" value="8">
+                <label for="defect-8">8: эталон2</label>
+            </div>
+            <div class="form_radio_btn">
+                <input id="defect-9" type="radio" name="defect-type" value="9">
+                <label for="defect-9">9: эталон3</label>
+            </div>
+            <div class="form_radio_btn">
+                <input id="defect-10" type="radio" name="defect-type" value="10">
+                <label for="defect-10">10: пора-скрытая</label>
+            </div>
+            <div class="form_radio_btn">
+                <input id="defect-11" type="radio" name="defect-type" value="11">
+                <label for="defect-11">11: утяжина</label>
+            </div>
+            <div class="form_radio_btn">
+                <input id="defect-12" type="radio" name="defect-type" value="12">
+                <label for="defect-12">12: несплавление</label>
+            </div>
+            <div class="form_radio_btn">
+                <input id="defect-13" type="radio" name="defect-type" value="13">
+                <label for="defect-13">13: непровар корня</label>
+            </div>
+            <button id="confirm-defects-btn" disabled>Применить фильтр</button>
+        </div>
+        </div>
+    </div>
+
+    <!-- Правая панель - результаты обработки -->
+    <div class="container-center">
+        <div class="text-output" id="output">
+            Результаты обработки
+        </div>
+        <button id="download-btn" style="visibility: hidden">Загрузить отчет</button>
+    </div>
+</div>
+</div>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>Здесь могло быть ваше название</p>
+    </div>
+</footer>
+<script src="static/script.js?v={{ version }}"></script>
+</body>
+</html>

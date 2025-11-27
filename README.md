@@ -41,7 +41,10 @@ uvicorn main:app --reload
 
 techsquad_hackathon/
 ├── main.py # 🏁 Точка входа FastAPI приложения
+
 ├── requirements.txt # 📦 Зависимости проекта
+
 ├── static/ # 🎨 Статические файлы (CSS, JS)
+
 └── templates/ # 📄 HTML шаблоны
 

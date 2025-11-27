@@ -43,6 +43,5 @@ techsquad_hackathon/ <br>
 ├── main.py # 🏁 Точка входа FastAPI приложения <br>
 ├── requirements.txt # 📦 Зависимости проекта <br>
 ├── static/ # 🎨 Статические файлы (CSS, JS) <br>
-
 └── templates/ # 📄 HTML шаблоны
 
